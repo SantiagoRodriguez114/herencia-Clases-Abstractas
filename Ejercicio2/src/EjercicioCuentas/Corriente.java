@@ -1,6 +1,6 @@
 package EjercicioCuentas;
 
-class Corriente extends Cuenta {
+public class Corriente extends Cuenta {
     private long sobregiro;
 
     public Corriente(int numeroCuenta, String titular, long sobregiro) {
@@ -10,15 +10,8 @@ class Corriente extends Cuenta {
 
     @Override
     public void deposito(long valor) {
-        saldo += valor; 
+        this.saldo += valor; 
 
-        
-        if (saldo > 0) {
-            long exceso = saldo; 
-            sobregiro += exceso; 
-            saldo = 0; 
-            System.out.println("Sobregiro cubierto parcialmente. Sobregiro disponible: " + sobregiro);
-        }
 
         System.out.println("Depósito de " + valor + " realizado. Saldo actual: " + saldo);
     }
@@ -44,6 +37,6 @@ class Corriente extends Cuenta {
 
     @Override
     public String toString() {
-        return super.toString() + ", Saldo: " + saldo + ", Sobregiro disponible: " + sobregiro;
+        return super.toString() + "\n Sobregiro disponible: " + sobregiro;
     }
 }
